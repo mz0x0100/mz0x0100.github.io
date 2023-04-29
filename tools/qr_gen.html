@@ -85,12 +85,9 @@
                         <p>Please enter data first, then click on generate</p>
                     </div>
                     <div id="qr-code"></div>
-                    <a id='qr-download' href="" download>
-
+                    <a id='qr-download' hidden>
+                        <button class="btn-download d-none btn-disable my-btn bi bi-download mt-3"> Download</button>
                     </a>
-                    <!-- <a id='qr-download' href="" download> -->
-                        <button onclick="downloadQRImage()" class="btn-download d-none btn-disable my-btn bi bi-download mt-3"> Download</button>
-                    <!-- </a> -->
     
                 </div>
             </div>
@@ -200,6 +197,15 @@
 
                             if ($('.btn-download').hasClass('d-none'))
                                 $('.btn-download').removeClass('d-none');
+
+                            setTimeout(() => {
+                                let qelem = $('#qr-code img');
+                                let dlink = $('#qr-download');
+                                let qr = qelem.attr('src');
+                                dlink.attr('href', qr);
+                                dlink.attr('download', 'qrcode.png');
+                                dlink.removeAttr('hidden');
+                            }, 500);
 
                         } catch(err) {}
                             
