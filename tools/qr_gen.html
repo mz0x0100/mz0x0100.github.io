@@ -64,7 +64,7 @@
         <div class="container myContent">
             <h2>QR Code Generator</h2>
             <div class="row gy-4">
-                <div class="col-lg-6 col-md-12 shadow">
+                <div class="col-lg-6 col-md-12 shadow p-4">
                     <!-- <h4>QR Code</h4> -->
                     <p style="text-align: left;">
                         QR Code is the short for <b>Q</b>uick <b>R</b>esponse <b>C</b>ode,
@@ -85,10 +85,12 @@
                         <p>Please enter data first, then click on generate</p>
                     </div>
                     <div id="qr-code"></div>
-    
                     <a id='qr-download' href="" download>
-                        <button onclick="downloadQRImage()" class="btn-download d-none btn-disable my-btn bi bi-download mt-3"> Download</button>
+
                     </a>
+                    <!-- <a id='qr-download' href="" download> -->
+                        <button onclick="downloadQRImage()" class="btn-download d-none btn-disable my-btn bi bi-download mt-3"> Download</button>
+                    <!-- </a> -->
     
                 </div>
             </div>
@@ -185,7 +187,7 @@
                         }
 
                         try {
-                                // overwite content
+                            // overwite content
                             canvas.innerHTML = "";
                             new QRCode(canvas, {
                                 text: $('#url').val(),
@@ -213,6 +215,7 @@
             function downloadQRImage() {
                 let img = canvas.getElementsByTagName('img');
                 document.getElementById('qr-download').href = img[0].src;
+                document.getElementById('qr-download').click();
             }
         </script>
     </body>
