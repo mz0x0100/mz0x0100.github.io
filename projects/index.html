@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en-US">
+        <title>My Projects</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <!-- VENDORS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <!-- <link rel="stylesheet" href="../assets/vendors/aos/aos.css"> -->
+    
+    
+        <link rel="stylesheet" href="../index.css">
+    </head>
+    <body class="page-index">
+        <!-- HEADER SECTION -->
+        <header class="header fixed-top d-flex align-items-center sticked" id='header'>
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+                <a href="../index.html" class="text d-flex align-items-center">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <h1 class="d-flex align-items-center">mz0x0100</h1>
+                </a>
+
+                <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+                <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+                <nav class="navbar" id="navbar">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li class="dropdown"><a href="#"><span>Tools</span><i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="../tools/base64.html">Base64 encoder/decoder</a></li>
+                                <li><a href="../tools/xortool.html">XOR encryptor/decryptor</a></li>
+                                <li><a href="../projects/bconverter.html">Number base converter</a></li>
+                                <li><a href="../projects/jscalculator.html">Calculator</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html" class="active">Projects</a></li>
+                        <li><a href="../sitemap.html">Sitemap</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="myContent container">
+            <section class="project" data-aos="fade-up" data-aos-delay="100">
+                <h2>Projects</h2>
+                <div class="row gy-5">
+                    <!-- Project Box -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="project-box">
+                            <div class="project-img">
+                                <img src="../assets/img/projects/nsh.png"  class="img-fluid img-thumbnail" alt="">
+                            </div>
+                            <h4 class="project-title">Network Shell Website</h4>
+                            <p class="text-muted">
+                                Built an educational website.
+                                Technical content only.
+                            </p>
+                            <a href="https://nshel.github.io"><button class="btn-demo">Visit site</button></a>
+                        </div>
+                    </div> <!--End Project Box-->
+    
+                    <!-- Project Box -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="project-box">
+                            <div class="project-img">
+                                <img src="../assets/img/projects/bconverter.png"  class="img-fluid img-thumbnail" alt="">
+                            </div>
+                            <h4 class="project-title">Number Base Converter</h4>
+                            <p class="text-muted">
+                                Capable of conversion between number systems with explanation.
+                            </p>
+                            <a href="bconverter.html"><button class="btn-demo">Demo</button></a>
+                            <a href="https://github.com/mz0x0100/BConverter"><button class="btn-github">Github</button></a>
+                        </div>
+                    </div> <!--End Project Box-->
+                    
+                     <!-- Project Box -->
+                     <div class="col-xl-4 col-md-6">
+                        <div class="project-box">
+                            <div class="project-img">
+                                <img src="../assets/img/projects/jscalc.png"  class="img-fluid img-thumbnail" alt="">
+                            </div>
+                            <h4 class="project-title">JS Calculator</h4>
+                            <p class="text-muted">
+                                A simple yet good calculator developed in JavaScript.
+                            </p>
+                            <a href="jscalculator.html"><button class="btn-demo">Demo</button></a>
+                            <a href="https://github.com/mz0x0100/JSProCalculator"><button class="btn-github">Github</button></a>
+                        </div>
+                    </div> <!--End Project Box-->
+                    
+    
+                </div>
+                <!-- <strong>Web Projects</strong>
+                <div class="accordion">Network Shell Website</div>
+                <div class="accordion-content">
+                    <p>
+                        NShell is an educational website that I build,
+                        where I share my knowledge about coding,
+                        ethical hacking, networking and other related technical contents. 
+                    </p>
+                    <a href="https://nshel.github.io"><button class="btn-demo">Visit site</button></a>
+                </div>
+                <div class="accordion">Dynamic Number Base System Converter</div>
+                <div class="accordion-content">
+                    <p>
+                        I called this project BConverter (Base Converter), it's a Number
+                        Base Converter, capable of conversion between binary, octal,
+                        decimal and hexadecimal number base systems along with explanation
+                        generated for which given task, so it does'nt just provide you with 
+                        solution but also a good explanation that will help you understand how it's
+                        done.
+                        
+                    </p>
+                    <a href="projects/bconverter.html"><button class="btn-demo">Demo</button></a>
+                    <a href="https://github.com/mz0x0100/BConverter"><button class="btn-github">Github</button></a>
+                </div>
+                <div class="accordion">JavaScript Calculator</div>
+                <div class="accordion-content">
+                    <p>
+                        This is a simple yet very good calculator, it has the functionality
+                        of working with other number bases aside from just decimal number system
+                        such that you can convert your results to binary, hexadecimal, octal or 
+                        decimal.<br>
+    
+                        Enjoy your calculator while you still can!
+                        
+                    </p>
+                    <a href="projects/jscalculator.html"><button class="btn-demo">Demo</button></a>
+                        <a href="https://github.com/mz0x0100/JSProCalculator"><button class="btn-github">Github</button></a>
+                </div> -->
+            </section>
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- SOCIAL LINKS-->
+                    <div class="col-lg-5 col-md-12">
+                        <h4 style="font-size: 30px;">Social Links</h4>
+                        <p class="text-muted">You can reach out to me at my social media handle @mz0x0100</p>
+                        <div class="social-links d-flex mt-3">
+                            <a href="https://www.facebook.com/mz0x0100" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/mz0x0100" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://twitter.com/mz0x0100" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="https://github.com/mz0x0100" target="_blank" title="Github"><i class="bi bi-github"></i></a>
+                            <a href="https://linkedin.com/mz0x0100" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://t.me/mz0x0100" target="_blank" title="Telegram"><i class="bi bi-telegram"></i></a>
+                        </div>
+                    </div> <!-- END SOCIAL-->
+        
+                    <!-- USEFUL LINKS -->
+                    <div class="col-lg-2 col-6 footer-col-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-dash"></i><a href="../index.html">Home</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../projects/index.html">Projects</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/index.html">Tools</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../sitemap.html">Sitemap</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- TOOLS -->
+                    <div class="col-lg-2 col-6 footer-col-links">
+                        <h4>Tools</h4>
+                        <ul>
+                            <li><i class="bi bi-dash"></i><a href="../tools/base64.html">Base64 encoder/decoder</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/xortool.html">XOR encryptor/decryptor</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../projects/bconverter.html">Number base converter</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../projects/jscalculator.html">Calculator</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/qr_gen.html">QR code generator</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- CONTACT -->
+                    <div class="col-lg-2 col-6">
+                        <h4>Contact</h4>
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Location:</h6>
+                                <p>Gombe State, Nigeria</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Phone:</h6>
+                                <p>+2348147746399</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Email:</h6>
+                                <p><a href="mailto:adamukala234@gmail.com">adamukala234@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p class="text-muted">&copy; Copyright <span id="current-year"></span>. All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+
+   <script src="../assets/vendors/jquery/jquery-3.6.1.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="../main.js"></script>
+
+    </body>
+    
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Calculator</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+
+		<style>
+			body {
+				background-color: #121012;
+				color: #fefe;
+			}
+			.btn-about {
+                background-color: #4caf50;
+                position: absolute;
+				width: fit-content;
+                right: 12px;
+                top: 5px;
+            }
+			.btn-close {
+                color: #000;
+                font-size: 35px;
+                font-weight: bold;
+                position: absolute;
+                right: 10px;
+                top: 0;
+            }
+            .btn-close:hover, .btn-close:focus {
+                color: red;
+            }
+            .model {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.4); 
+            }
+            .model-box {
+                width: 95%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #eee;
+				color: #000;
+                padding: 18px;
+                border: 2px solid transparent;
+                border-top-right-radius: 30px;
+                border-bottom-left-radius: 30px;
+            }
+			html {
+                box-sizing: border-box;
+            }
+            .my-btn {
+                border-bottom-left-radius: 12px;
+                border-top-right-radius: 12px;
+                border: 2px solid transparent;
+            }
+			.form-box {
+				/* position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				top: 50%; */
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				-ms-transform: translate(-50%,-50%);
+				position: absolute;
+				padding: 20px;
+				border-left: 5px groove cyan;
+				border-radius: 7px;
+				background: #000000;
+			}
+			form button {
+				border: 2px solid #00fff0;
+				width: 15%;
+				padding: 6px;
+				font-size: 20px;
+				border-top-right-radius: 12px;
+				border-bottom-left-radius: 12px;
+				background-color: #ffffff;
+			}
+			form button:hover {
+				background-color: #00fff0;
+				cursor: pointer;
+				box-shadow: 0 16px 30px rgba(0,  0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.21);
+			}
+			.btn-github {
+
+				padding: 8px;
+				border-bottom-left-radius: 12px;
+				border-top-right-radius: 12px;
+				border: 2px solid transparent;
+				color: #eee;
+				width: fit-content;
+				background-color: black;
+			}
+			.my-btn:hover {
+				opacity: 0.7;
+			}
+			.txtfield {
+				/* width: 780px; */
+				height: 50px;
+				text-align: right;
+				font-size: 40px;
+				border-radius: 12px;
+			}
+			.ce {
+				border: 2px solid red;
+				background-color: red;
+			}
+			.ce:hover {
+				background-color: white;
+			}
+			.row {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body class="page-index">
+		<div class="model" id="model">
+            <span class="btn-close" title="Close" onclick="document.getElementById('model').style.display='none';"></span>
+            <div class="model-box shadow">
+                <h2>About</h2>
+                <p>
+                    This is a simple, yet very good calculator, it has the functionality
+					of working with other number bases aside from just decimal number system
+					such that you can convert your results to binary, hexadecimal, octal or 
+					decimal.<br>
+
+					Enjoy your calculator while you still can!<br><br>
+					
+					<a href="https://github.com/mz0x0100/JSProCalculator"><button class="my-btn btn-github">Github</button></a>
+				</p>
+            </div>
+        </div>
+		<div class='container'>
+            <div class='row' style='margin-top: 16px;'>
+                <div class='col-md-4 shadow form-box'>
+					<h2 style="text-align: center; margin: 6px;"><i>JS Programmer Calculator</i></h2>
+			
+					<form name="elements" class="form">
+						<div class="form-group">
+							<input type="textfield" name="calculate" value="" placeholder="0" id="calculate" class="txtfield form-control"><br>
+						</div>
+						<!-- <div class="row">
+							<div class="col-md"> -->
+								<button type="button" onclick="deleteLast()" class="ce">DEL</button>
+								<button type="button" onclick="document.elements.calculate.value +='%'">%</button>
+								<button type="button" onclick="document.elements.calculate.value += '!'">!</button><br>
+							<!-- </div>
+						</div>
+						<div class="row">
+							<div class="col-md"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xA'">A</button>
+								<button type="button" onclick="document.elements.calculate.value +='('">(</button>
+								<button type="button" onclick="document.elements.calculate.value +=')'">)</button>
+								<button type="button" onclick="document.elements.calculate.value **=2">x<sup>2</sup></button>
+								<button type="reset" class="ce">CE</button><br>
+							<!-- </div>
+							
+						</div>
+						<div class="row">
+							<div class="col-sm|md|lg|xl"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xB'">B</button>
+								<button type="button" onclick="document.elements.calculate.value +='9'">9</button>
+								<button type="button" onclick="document.elements.calculate.value +='8'">8</button>
+								<button type="button" onclick="document.elements.calculate.value +='7'">7</button>
+								<button type="button" onclick="document.elements.calculate.value +='/'">/</button><br>
+							<!-- </div>
+							
+						</div>
+						<div class="row">
+							<div class="col-sm|md|lg|xl"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xC'">C</button>
+								<button type="button" onclick="document.elements.calculate.value +='6'">6</button>
+								<button type="button" onclick="document.elements.calculate.value +='5'">5</button>
+								<button type="button" onclick="document.elements.calculate.value +='4'">4</button>
+								<button type="button" onclick="document.elements.calculate.value +='*'">&times;</button><br>
+							<!-- </div>
+						</div>
+						<div class="row">
+							<div class="col-sm|md|lg|xl"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xD'">D</button>
+								<button type="button" onclick="document.elements.calculate.value +='3'">3</button>
+								<button type="button" onclick="document.elements.calculate.value +='2'">2</button>
+								<button type="button" onclick="document.elements.calculate.value +='1'">1</button>
+								<button type="button" onclick="document.elements.calculate.value +='-'">-</button><br>
+							<!-- </div>
+						</div>
+						<div class="row">
+							<div class="col-sm|md|lg|xl"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xE'">E</button>
+								<button type="button" onclick="document.elements.calculate.value +='0'">0</button>
+								<button type="button" onclick="document.elements.calculate.value +='.'">.</button>
+								<button type="button" onclick="document.elements.calculate.value +='+'">+</button>
+								<button type="button" onclick="evaluateEx(document.elements.calculate.value)">=</button><br>
+							<!-- </div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm|md|lg|xl"> -->
+								<button type="button" onclick="document.elements.calculate.value +='0xF'">F</button>
+								<button type="button" onclick="toHexadecimal()">Hex</button>
+								<button type="button" onclick="toDecimal()">Dec</button>
+								<button type="button" onclick="toOctal()">Oct</button>
+								<button type="button" onclick="toBinary()">Bin</button>
+							<!-- </div>
+						</div>
+						-->
+					</form>
+				</div>
+			</div>
+			<button class="btn btn-secondary btn-about" onclick="document.getElementById('model').style.display='block';">About</button>	
+		</div>
+		<script>
+			
+			function factorial(n) {
+				if (n == 1)
+					return 1;
+				
+				return n * factorial(n - 1);
+			}
+			
+			function calculateHex(equation) {
+
+			}
+			/**
+			 * Method for finding all facotrials in an equation
+			*/
+			function calculateFactorial(equation) {
+				// get the index of a facotrial sign
+				let factIndex = equation.indexOf('!'); 
+
+				if (factIndex != -1) {
+					// get all equation from the beginning to the
+					// occrance of the ! sign
+					let substr = equation.substring(0, factIndex);
+					console.log('Substring: ' + substr);
+					console.log('Substring length: ' + substr.length);
+					let ops = ['*', '/', '-', '+', '(']
+					let finished = false;
+					for (let i = substr.length - 1; i >= 0; --i) {
+						console.log(substr[i]);
+
+						if (finished)
+							break;
+						for (let j = 0; j < ops.length; j++) {
+
+							if (substr[i] == ops[j] || (i == 0 && j == ops.length - 1)) {
+								// console.log('Op found');
+								// if i is not in the beginning it means
+								// there's an operator, we remove it by
+								// incrementing i by 1
+								i = i == 0 ? 0 : i += 1;
+								if (substr[i] == '(')
+									i += 1;
+
+								let fact = substr.substring(i, substr.length);
+								console.log(fact);
+								fact = factorial(fact);
+								console.log('Facotrial of ' + substr.substring(i, substr.length) + ' is ' + fact);
+								
+								console.log('Old substring: '+ substr);
+								// if there's no operator 
+								if (i == 0) {
+									substr = fact;
+								} else {
+									substr = substr.substring(0, i) + fact;
+								}
+
+								console.log('New substring: ' + substr);
+								finished = true;
+								break;
+							}
+						}
+					}
+					
+					let nEquation = equation.substring(factIndex+1, equation.length);
+					nEquation = substr + nEquation;	
+
+					console.log("Old equation: " + equation);
+					console.log("New equation: " + nEquation);
+
+					return calculateFactorial(nEquation);
+				}
+
+				return equation;
+				
+			}
+
+			function evaluateEx(value) {
+
+				equation = calculateFactorial(value);	
+
+				console.log('########################################');
+				console.log('Old equation: ' + value);
+				console.log('New equation: ' + equation);
+				document.elements.calculate.value = eval(equation);
+			}
+			/*
+				function for removing the last item in the textarea, toggled by the 'del' button
+			*/
+			function deleteLast() {
+				let x = document.elements.calculate.value;
+				
+				// get all the string from beginning removing the last item
+				let y = x.slice(0, x.length - 1);
+				
+				document.elements.calculate.value = y;
+			}
+
+			function toHexadecimal() {
+				// evaluateEx(x);
+				var x = document.elements.calculate.value;
+				for (var i=0; i<=x.length; i++) {
+					var y = ((x >>> 0).toString(16));
+					document.elements.calculate.value = y;
+				}
+			}
+			function toDecimal() {
+				// evaluateEx(x);
+				var x = document.elements.calculate.value;
+				for (var i=0; i<=x.length; i++) {
+					var y = ((x >>> 0).toString(10));
+					document.elements.calculate.value = y;
+				}
+			}
+
+			function toOctal() {
+				// evaluateEx(x);
+				var x = document.elements.calculate.value;
+				for (var i=0; i<=x.length; i++) {
+					var y = ((x >>> 0).toString(8));
+					document.elements.calculate.value = y;
+				}
+			} 
+			function toBinary() {
+				// evaluateEx(x);
+				var x = document.elements.calculate.value;
+				for (var i=0; i<=x.length; i++) {
+					var y = ((x >>> 0).toString(2));
+					document.elements.calculate.value = y;
+				}
+			}
+			let modal = document.getElementById('model');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+		</script>
+	</body>
+</html>

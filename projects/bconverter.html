@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Number Base Converter</title>
+        <meta charset="utf-8">
+
+        <meta name="author" content="Mohammed Zayyad">
+        <meta name="http-equiv" content="Content-Type: text/html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="convert binary to other number systems, convert binary to octal, convert binary to decimal, convert binary to hexadecimal, convert octal to binary, convert octal to decimal, convert octal to hexadecimal, convert decimal to binary, convert decimal to octal, convert decimal to hexadecimal, convert hexadecimal to binary, convert hexadecimal to octal, convert hexadecimal to decimal, binary, octal, decimal, hexadecimal, base">
+        <meta name="describtion" content="This is a Number
+        Base Converter Developed by Mohammed Zayyad (mz0x0100), capable of conversion 
+        between binary, octal,
+        decimal and hexadecimal number base systems along with explanation
+        generated for which given task, so it does'nt just provide you with 
+        solution but also a good explanation that will help you understand how it's
+        done.">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../index.css">
+        <style>
+            body {
+                transition: p .5s;
+                transition-delay: 1s;
+            }
+            html {
+                box-sizing: border-box;
+            }
+            .btn {
+                border-bottom-left-radius: 12px;
+                border-top-right-radius: 12px;
+                border: 2px solid transparent;
+            }
+            #result, #working {
+                display: none;
+            }
+            #error {display: none;}
+            .btn-about {
+                background-color: #4caf50;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
+            .model {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.4); 
+            }
+            .model-box {
+                width: 95%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #eee;
+                padding: 18px;
+                border: 2px solid transparent;
+                border-top-right-radius: 30px;
+                border-bottom-left-radius: 30px;
+            }
+            .btn-close {
+                color: #000;
+                font-size: 35px;
+                font-weight: bold;
+                position: absolute;
+                right: 10px;
+                top: 0;
+            }
+            .btn-close:hover, .btn-close:focus {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body class="page-index">
+
+        <div class="model" id="model">
+            <span class="btn-close" title="Close" onclick="document.getElementById('model').style.display='none';"></span>
+            <div class="model-box shadow">
+                <h2>About</h2>
+                <p>
+                    I called this project BConverter (Base Converter), it's a Number
+                    Base Converter Developed by Mohammed Zayyad (mz0x0100), capable of conversion 
+                    between binary, octal,
+                    decimal and hexadecimal number base systems along with explanation
+                    generated for which given task, so it does'nt just provide you with 
+                    solution but also a good explanation that will help you understand how it's
+                    done.
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <button class="btn btn-secondary btn-about" onclick="document.getElementById('model').style.display='block';">About</button>
+            <div class="row g-5 pt-5">
+                <div class="col-9-lg shadow">
+                    <!-- <h3 style="text-align: center;">NShell BConverter</h3> -->
+                    <form action="">
+                        <div class="form-group">
+                            <label for="ctarget">Number:</label>
+                            <input type="text" name="ctarget" id="ctarget" class="form-control"> 
+                        </div> <br>
+                        
+                        <div class="form-group">
+                            <label for="from">From:</label>
+                            <select name="from" id="from" class="form-control">
+                                <option value="2" id="2" selected>2 (Binary)</option>
+                                <option value="8" id="8">8 (Octal)</option>
+                                <option value="10" id="10">10 (Decimal)</option>
+                                <option value="16" id="16"> 16 (Hexadecimal)</option>
+                            </select>
+                        </div> <br>
+                        
+                        <div class="form-group">
+                            <label for="to">To:</label>
+                            <select name="to" id="to" class="form-control">
+                                <option value="2" id="t2">2 (Binary)</option>
+                                <option value="8" id="t8">8 (Octal)</option>
+                                <option value="10" id="t10" selected>10 (Decimal)</option>
+                                <option value="16" id="t16"> 16 (Hexadecimal)</option>
+                            </select>
+                        </div> <br>
+                        <button type="button" value="Convert" onclick="doConversion()" class="btn btn-primary">Convert</button>
+                        <input type="reset" value="Reset" class="btn btn-secondary">
+                    </form>
+                    <br>
+                    <div class="alert alert-danger" id="error">
+                    				
+                    </div>
+                    <p>Result:</p>
+                    <div id="result" class="alert alert-success">
+
+                    </div>
+                    <p>Working:</p>
+                    <div id="working" class="alert alert-info">
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <p id="demo"></p>
+
+         <!-- FOOTER SECTION -->
+       <footer class="footer">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- SOCIAL LINKS-->
+                    <div class="col-lg-5 col-md-12">
+                        <h4 style="font-size: 30px;">Social Links</h4>
+                        <p class="text-muted">You can reach out to me at my social media handle @mz0x0100</p>
+                        <div class="social-links d-flex mt-3">
+                            <a href="https://www.facebook.com/mz0x0100" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/mz0x0100" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://twitter.com/mz0x0100" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="https://github.com/mz0x0100" target="_blank" title="Github"><i class="bi bi-github"></i></a>
+                            <a href="https://linkedin.com/mz0x0100" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://t.me/mz0x0100" target="_blank" title="Telegram"><i class="bi bi-telegram"></i></a>
+                        </div>
+                    </div> <!-- END SOCIAL-->
+        
+                    <!-- USEFUL LINKS -->
+                    <div class="col-lg-2 col-6 footer-col-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-dash"></i><a href="../index.html">Home</a></li>
+                            <li><i class="bi bi-dash"></i><a href="index.html">Projects</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/index.html">Tools</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../sitemap.html">Sitemap</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- TOOLS -->
+                    <div class="col-lg-2 col-6 footer-col-links">
+                        <h4>Tools</h4>
+                        <ul>
+                            <li><i class="bi bi-dash"></i><a href="../tools/base64.html">Base64 encoder/decoder</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/xortool.html">XOR encryptor/decryptor</a></li>
+                            <li><i class="bi bi-dash"></i><a href="bconverter.html">Number base converter</a></li>
+                            <li><i class="bi bi-dash"></i><a href="sitemap.html">Calculator</a></li>
+                            <li><i class="bi bi-dash"></i><a href="../tools/qr_gen.html">QR code generator</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- CONTACT -->
+                    <div class="col-lg-2 col-6">
+                        <h4>Contact</h4>
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Location:</h6>
+                                <p>Gombe State, Nigeria</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Phone:</h6>
+                                <p>+2348147746399</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex">
+                            <div>
+                                <h6>Email:</h6>
+                                <p><a href="mailto:adamukala234@gmail.com">adamukala234@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p class="text-muted">&copy; Copyright <span id="current-year"></span>. All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+        <script src="bconverter.js">
+
+        </script>
+        <script>
+            let modal = document.getElementById('model');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
